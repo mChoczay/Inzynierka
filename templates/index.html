@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMARTHOME DASHBOARD</title>
+    <style>
+    .float-container {
+        border: 3px solid #fff;
+
+    }
+
+    .float-child {
+        width: 10%;
+        float: left;
+    }
+    </style>
+</head>
+<body>
+     <a href="http://127.0.0.1:5000/">ZAREJESTRUJ URZADZENIE</a>
+
+    <form action="{{url_for('aktuator')}}" method="post">
+        <label for="aktuator">Oszczedzanie energii</label>
+        <select name="aktuator" id="aktuator">
+            <option value="True">OFF</option>
+            <option value="False">AUTO</option>
+        </select>
+        <button type="submit">Zatwierdz</button>
+    </form>
+
+    <form action="{{url_for('wlacznik')}}" method="post">
+        <label for="wlacz">Stan urzadzenia</label>
+        <select name="wlacz" id="wlacz">
+            <option value="True">ON</option>
+            <option value="False">OFF</option>
+        </select>
+        <button type="submit">Zatwierdz</button>
+    </form>
+
+    <form action="{{url_for('serwer')}}" method="post">
+        <label for="serwer">Wybierz sprzet:</label>
+        <select name="serwer" id="serwer">
+            <option value="1">Oswietlenie</option>
+            <option value="2">Ogrzewanie</option>
+            <option value="3">Male AGD</option>
+        </select>
+        <button type="submit">Zatwierdz</button>
+    </form>
+
+    <form action="{{url_for('status')}}">
+        <label for="status">Sprawdz czy urzadzenie dziala</label>
+        <button type="submit">Zatwierdz</button>
+    </form>
+
+     <div class="float-container">
+              <div class="float-child">
+                <div class="white">
+                    {%if value == "1"%}
+                        <p style="color: green;">Obslugujesz oswietlenie</p>
+                  {%else%}
+                        <p style="color: red;">Oswietlenie</p>
+                  {%endif%}
+                  {%if value == "2"%}
+                        <p style="color: green;">Obslugujesz ogrzewanie</p>
+                  {%else%}
+                        <p style="color: red;">Ogrzewanie</p>
+                  {%endif%}
+
+                  {%if value == "3"%}
+                        <p style="color: green;">Obslugujesz male AGD</p>
+                  {%else%}
+                        <p style="color: red;">Male AGD</p>
+                  {%endif%}
+                </div>
+              </div>
+              <div class="float-child">
+                <div class="white">
+                    {%if value2 == "True" and value3 == "5050"%}
+                            <p style="color: green">Wlaczone</p>
+                        {%else%}
+                            <p style="color: red">Wylaczone</p>
+                        {%endif%}
+
+                        {%if value2 == "True" and value3 == "5051"%}
+                            <p style="color: green">Wlaczone</p>
+                        {%else%}
+                            <p style="color: red">Wylaczone</p>
+                        {%endif%}
+
+                        {%if value2 == "True" and value3 == "5052"%}
+                            <p style="color: green">Wlaczone</p>
+                        {%else%}
+                            <p style="color: red">Wylaczone</p>
+                        {%endif%}
+                </div>
+              </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
