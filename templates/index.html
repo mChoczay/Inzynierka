@@ -10,7 +10,6 @@
         border: 3px solid #fff;
 
     }
-
     .float-child {
         width: 10%;
         float: left;
@@ -19,15 +18,6 @@
 </head>
 <body>
      <a href="http://127.0.0.1:5000/">ZAREJESTRUJ URZADZENIE</a>
-
-    <form action="{{url_for('aktuator')}}" method="post">
-        <label for="aktuator">Oszczedzanie energii</label>
-        <select name="aktuator" id="aktuator">
-            <option value="True">OFF</option>
-            <option value="False">AUTO</option>
-        </select>
-        <button type="submit">Zatwierdz</button>
-    </form>
 
     <form action="{{url_for('wlacznik')}}" method="post">
         <label for="wlacz">Stan urzadzenia</label>
@@ -41,9 +31,9 @@
     <form action="{{url_for('serwer')}}" method="post">
         <label for="serwer">Wybierz sprzet:</label>
         <select name="serwer" id="serwer">
-            <option value="1">Oswietlenie</option>
-            <option value="2">Ogrzewanie</option>
-            <option value="3">Male AGD</option>
+            <option value="1">Ogrzewanie</option>
+            <option value="2">Oswietlenie</option>
+            <option value="3">Nawilżanie</option>
         </select>
         <button type="submit">Zatwierdz</button>
     </form>
@@ -57,20 +47,20 @@
               <div class="float-child">
                 <div class="white">
                     {%if value == "1"%}
-                        <p style="color: green;">Obslugujesz oswietlenie</p>
-                  {%else%}
-                        <p style="color: red;">Oswietlenie</p>
-                  {%endif%}
-                  {%if value == "2"%}
                         <p style="color: green;">Obslugujesz ogrzewanie</p>
                   {%else%}
                         <p style="color: red;">Ogrzewanie</p>
                   {%endif%}
+                  {%if value == "2"%}
+                        <p style="color: green;">Obslugujesz oswietlenie</p>
+                  {%else%}
+                        <p style="color: red;">Oswietlenie</p>
+                  {%endif%}
 
                   {%if value == "3"%}
-                        <p style="color: green;">Obslugujesz male AGD</p>
+                        <p style="color: green;">Obslugujesz nawilżanie</p>
                   {%else%}
-                        <p style="color: red;">Male AGD</p>
+                        <p style="color: red;">Nawilżanie</p>
                   {%endif%}
                 </div>
               </div>
@@ -97,16 +87,5 @@
               </div>
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
 </body>
 </html>
